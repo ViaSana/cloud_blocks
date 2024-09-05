@@ -1,0 +1,93 @@
+---
+layout: default
+blocks:
+    -
+        _id: banner
+        block-content-html: <p>dan was here</p><h2>No really he was </h2>
+        background-desktop-image: https://picsum.photos/id/1023/600/400
+        background-mobile-image: https://picsum.photos/id/1024/600/400
+        text-alignment: center
+        vert-alignment: middle
+        overlay-color: '#000000'
+        overlay-opacity: 0.5
+        min-height: 90vh
+        top-space-padding: 10vw
+        bottom-space-padding: 5vw
+        color-scheme: dark
+    -
+        _id: banner-split
+        block-content-html: <h2 class="larger-heading">Quick text here </h2>
+        background-desktop-image: https://picsum.photos/id/1023/600/400
+        background-mobile-image: https://picsum.photos/id/1024/600/400
+        background-alt: bg-alt that descriptive
+        desktop-collapse-bg-padding: true
+        desktop-image-position: left
+        section-gap: 10rem
+        text-alignment: center
+        vert-alignment: top
+        mobile-image-position: bottom
+        mobile-collapse-bg-padding: false
+        img_aspect: Wide Landscape
+        top-space-padding: 10vw
+        bottom-space-padding: 5vw
+        color-scheme: dark
+    -
+        _id: banner-video
+        block-content-html:
+        videos:
+            -
+                video_path: /uploads/sea-24216-360p.mp4
+                video_type: mp4
+        text-alignment: right
+        vert-alignment: middle
+        overlay-color: '#255a2c'
+        overlay-opacity: 0.5
+        min-height: 50vh
+        top-space-padding: 10vw
+        bottom-space-padding: 5vw
+        color-scheme: featured
+    -
+        _id: grid
+        grid-desktop-columns: 4
+        grid-mobile-columns: 2
+        grid-gap: 1rem
+        columns:
+            -
+                col-type: video
+                videos:
+                    -
+                        video_path: /uploads/sea-24216-360p.mp4
+                        video_type: mp4
+                video_controls: true
+                video_autoplay: false
+                img_aspect: Square
+                col-width: 2
+                col-height: 1
+            -
+                col-type: text
+                block-content-html: <p>quick text</p>
+                icon-path:
+                icon-alt:
+                color-scheme: featured
+                col-width: 2
+                col-height: 1
+            -
+                col-type: img
+                image: https://picsum.photos/id/1023/600/400
+                image_alt:
+                img_aspect: Wide Landscape
+                col-width: 1
+                col-height: 2
+        color-scheme: dark
+    -
+        _id: text-block
+        content: >-
+            <p>dan was there</p>{% include snippets/imgGallery3.html
+            first-image="/uploads/screenshot-2024-08-26-094507.png" first-alt=""
+            second-image="/uploads/screenshot-2024-08-26-094507.png"
+            second-alt="" third-image="" third-alt="" image_size_ratio=""
+            %}<h2>{% include snippets/image-float.html
+            image="/uploads/screenshot-2024-08-26-094507.png" alt=""
+            float-direction="" %} And fun was had</h2>
+        color-scheme: base
+---

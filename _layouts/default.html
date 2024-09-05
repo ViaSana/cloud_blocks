@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" class="hide-scrollbars">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>oshombali</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/x-icon" href="/uploads/favicon.png">
+
+
+    
+<link rel="stylesheet" href="/editor.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+
+<style>
+    :root{
+        --max-width: {{site.data.style.max-width}}px;
+        --side-gap: {{site.data.style.horizontal-padding}};
+        --vert-gap: {{site.data.style.vertical-padding}};
+        --animation-speed: {{site.data.style.animation-speed}};
+        --small-padding: {{site.data.style.small-padding}};
+    }
+
+    body{
+        --max-width-side-padding: max({{site.data.style.horizontal-padding}},  calc( calc(100vw - var(--max-width)) / 2) );
+    }
+    :root,{% for scheme in site.data.style.schemes %}
+        .scheme-{{scheme.scheme_name}} {
+            --bg-color: {{scheme.bg-color}};
+            --text-color: {{scheme.text-color}};
+            --colored-button-bg: {{scheme.colored-button-bg-color}};
+            --colored-button-text: {{scheme.colored-button-text-color}};
+        }
+    {% endfor %}
+
+</style>
+
+
+</head>
+
+<body>
+  <div class="scheme-base relative" id="header">
+  <header>
+    <div class="max-width">
+      <nav class="text-right">
+        {% for link in site.data.navigation.header_links %}
+        <a class="inline-block p-4" href="{{link.link}}">{{link.text}}</a>
+        {% endfor %}
+      </nav>
+    </div>
+  </header>
+</div>
+  {% if page.blocks %}
+    {% for block in page.blocks %}
+        <div class="scheme-{{block.color-scheme}} relative" id="section-{{forloop.index}}">
+            {% comment %} to figure out what block you added in inspect {% endcomment %}
+            <!--{{block._id}} -->
+            {% include /block/{{block._id}}.html %}
+        </div>
+        <!-- script check -->
+         {% if block._id == 'accordion' %}
+           {% assign hasAccordion = true %}
+         {% endif %}
+    {% endfor %}
+    {% else %}
+    <section>
+      <div class="max-width">
+        {{content}}
+      </div>
+    </section>
+    {% endif %}
+
+
+    <div class="scheme-dark relative" id="footer">
+    <footer>
+      <div class="max-width">
+        <nav class="text-right">
+          {% for link in site.data.navigation.footer_links %}
+          <a class="inline-block p-4" href="{{link.link}}">{{link.text}}</a>
+          {% endfor %}
+        </nav>
+      </div>
+    </footer>
+  </div>
+</body>
+
+
+<script>    
+{% if hasAccordion == true %}
+    const buttons = document.querySelectorAll(".expandButton");
+  const dropSecs = document.querySelectorAll(".drop-sec");
+  
+  function getHeight(target) {
+    target.style.setProperty('--true-height',  `${target.querySelector(".content").offsetHeight}px` )
+  }
+
+  dropSecs.forEach(sec => {
+    getHeight(sec)
+  })
+
+  onresize = (event) => {
+    dropSecs.forEach(sec => {
+    getHeight(sec)
+  })
+  };
+
+
+  
+  function showMore() {
+
+      this.nextElementSibling.classList.toggle('collapsed');
+  }
+
+  buttons.forEach(button => {
+    button.addEventListener('click', showMore)
+  }
+  )
+
+  {% endif %}
+</script>

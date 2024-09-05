@@ -1,0 +1,311 @@
+paths:
+  uploads: uploads
+  static: ''
+  dam_uploads: ''
+  dam_static: ''
+  collections: ''
+  data: _data
+  layouts: _layouts
+  includes: _includes
+collections_config:
+  pages:
+    path: ''
+    output: true
+    filter: strict
+    description: ''
+    icon: notes
+    _editables:
+    _inputs:
+    _select_data:
+    _structures:
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+    schemas:
+      default page:
+        path:
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: true
+        name:
+        icon: notes
+        preview:
+        _editables:
+        _inputs:
+        _select_data:
+        _structures:
+        create:
+        new_preview_url:
+_inputs:
+  layout:
+    type: text
+    hidden: true
+    cascade: true
+  col-type:
+    type: text
+    hidden: true
+    cascade: true
+  block-content-html:
+    type: html
+    options:
+      allow_resize: true
+      allow_custom_markup: false
+      remove_custom_markup: false
+      initial_height: 320
+      center: text-center
+      format: p h2 h3 a img
+      horizontalrule: true
+      image: true
+      image_size_attributes: true
+      left: text-left
+      link: true
+      resize_style: contain
+      right: text-right
+      snippet: false
+      styles: /editor.css
+    label: Content
+    cascade: true
+  content:
+    type: html
+    options:
+      allow_resize: true
+      allow_custom_markup: false
+      remove_custom_markup: false
+      initial_height: 320
+      center: text-center
+      format: p h2 h3 a img
+      horizontalrule: true
+      image: true
+      image_size_attributes: true
+      left: text-left
+      link: true
+      resize_style: contain
+      right: text-right
+      snippet: true
+      styles: /editor.css
+    label: Content
+    cascade: true
+  min-height:
+    type: select
+    options:
+      allow_empty: true
+      values:
+        50vh: half screen min-min
+        75vh: three quater screen min-min
+        90vh: just short of full screen
+        100vh: full screen
+    cascade: true
+  text-alignment:
+    type: select
+    options:
+      allow_empty: false
+      values:
+        - left
+        - center
+        - right
+    cascade: true
+  desktop-image-position:
+    type: select
+    options:
+      allow_empty: false
+      values:
+        - left
+        - right
+    cascade: true
+  vert-alignment:
+    type: select
+    options:
+      allow_empty: false
+      values:
+        - top
+        - bottom
+    cascade: true
+  img_aspect:
+    type: select
+    options:
+      allow_empty: false
+      values:
+        - Square
+        - Tall Portraight
+        - Portraight
+        - Landscape
+        - Wide Landscape
+    cascade: true
+_structures:
+  blocks:
+    style: modal
+    values:
+      - label: Simple banner
+        value:
+          _id: banner
+          block-content-html: <p>dan was here :D</p>
+          background-desktop-image: https://picsum.photos/id/1023/600/400
+          background-mobile-image: https://picsum.photos/id/1024/600/400
+          text-alignment: center
+          vert-alignment: middle
+          overlay-color: black
+          overlay-opacity: 0.5
+          min-height: 90vh
+          top-space-padding: 10vw
+          bottom-space-padding: 5vw
+          color-scheme: dark
+      - label: Split banner
+        value:
+          _id: banner-split
+          block-content-html:
+          background-desktop-image: https://picsum.photos/id/1023/600/400
+          background-mobile-image: https://picsum.photos/id/1024/600/400
+          background-alt: bg-alt
+          desktop-collapse-bg-padding: true
+          desktop-image-position: right
+          section-gap: 1rem
+          text-alignment: center
+          vert-alignment: bottom
+          mobile-image-position: bottom
+          mobile-collapse-bg-padding: false
+          img_aspect: Square
+          top-space-padding: 10vw
+          bottom-space-padding: 5vw
+          color-scheme: dark
+      - label: Video banner
+        value:
+          _id: banner-video
+          block-content-html:
+          videos:
+            - video_path: /uploads/sea-24216-360p.mp4
+              video_type: mp4
+          text-alignment: center
+          vert-alignment: middle
+          overlay-color: black
+          overlay-opacity: 0.5
+          min-height: 90vh
+          top-space-padding: 10vw
+          bottom-space-padding: 5vw
+          color-scheme: dark
+      - label: text block
+        value:
+          _id: text-block
+          content: 
+          color-scheme: dark
+      - label: Grid
+        value:
+          _id: grid
+          grid-desktop-columns: 4
+          grid-mobile-columns: 2
+          grid-gap: 1rem
+          columns:
+          color-scheme: dark
+      - label: Accordion
+        value:
+          _id: accordion
+          block-content-html:
+          drop_down:
+            button-text: Where is dan
+            icon_path: https://picsum.photos/id/1023/600/400
+            icon_alt: bike
+            block-content-html:
+          color-scheme: dark
+  columns:
+    style: modal
+    values:
+      - label: Image
+        value:
+          col-type: img
+          image: https://picsum.photos/id/1023/600/400
+          image_alt:
+          img_aspect: Square
+          col-width: 2
+          col-height: 2
+      - label: Text Block
+        value:
+          col-type: text
+          block-content-html:
+          icon-path:
+          icon-alt:
+          color-scheme: featured
+          col-width: 1
+          col-height: 1
+      - label: video
+        value:
+          col-type: video
+          videos:
+            - video_path: /uploads/sea-24216-360p.mp4
+              video_type: mp4
+          video_controls: false
+          video_autoplay: true
+          img_aspect: Square
+          col-width: 1
+          col-height: 1
+data_config: {}
+timezone: Etc/UTC
+_snippets_definitions:
+  jekyll_liquid_format:
+    root_value_delimiter: '='
+    root_pair_delimiter:
+      - ''
+    array_boundary:
+      start: '['
+      end: ']'
+    array_delimiter: ','
+    string_boundary:
+      - '"'
+      - ''''
+    forbidden_tokens:
+      - '%}'
+      - '-%}'
+      - '}}'
+      - ','
+_snippets_templates:
+  jekyll_liquid_include:
+    snippet: '{% include [[name]] [[args]] %}'
+    params:
+      name:
+        parser: literal
+        options:
+          literal:
+            ref: include_name
+      args:
+        parser: key_values
+        options:
+          models:
+            ref: named_args
+          format:
+            ref: jekyll_liquid_format
+_snippets:
+  image_grid:
+    template: jekyll_liquid_include
+    inline: false
+    preview:
+      text: 3 image gallery
+    definitions:
+      include_name: snippets/imgGallery3.html
+      named_args:
+        - editor_key: first-image
+          type: string
+        - editor_key: first-alt
+          type: string
+        - editor_key: second-image
+          type: string
+        - editor_key: second-alt
+          type: string
+        - editor_key: third-image
+          type: string
+        - editor_key: third-alt
+          type: string
+        - editor_key: image_size_ratio
+          type: string
+  floating_image:
+    template: jekyll_liquid_include
+    inline: true
+    preview:
+      text: floating image
+    definitions:
+      include_name: snippets/image-float.html
+      named_args:
+        - editor_key: image
+          type: string
+        - editor_key: alt
+          type: string
+        - editor_key: float-direction
+          type: string
