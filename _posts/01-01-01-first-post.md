@@ -10,3 +10,5 @@ dan was here
 &nbsp;
 
 {% include snippets/image-float.html image="" alt="" float-direction="" %} heloo&nbsp;
+
+{% include snippets/imgGallery3.html first-image="" first-alt="" second-image="" second-alt="" third-image="" third-alt="" image_size_ratio="" %}
