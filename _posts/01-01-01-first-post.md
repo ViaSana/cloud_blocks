@@ -9,6 +9,6 @@ dan was here
 
 &nbsp;
 
-{% include snippets/image-float.html image="" alt="" float-direction="" %} heloo&nbsp;
+{% include snippets/image-float.html image="/uploads/screenshot-2024-09-03-at-6-03-52-pm.png" alt="" float-direction="left" %} heloo&nbsp;
 
 {% include snippets/imgGallery3.html first-image="" first-alt="" second-image="" second-alt="" third-image="" third-alt="" image_size_ratio="" %}
